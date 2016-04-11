@@ -1,0 +1,29 @@
+<head>
+  <title>diceStorm</title>
+</head>
+
+<body>
+{{> userRoll }}
+</body>
+
+<template name="userRoll">
+  <h1>User Roll</h1>
+  <!--<span>Name: </span><input type="text" value="Nachiket"/>-->
+  <div class="aDie">4</div>
+  <div class="aDie">6</div>
+  <div class="aDie">8</div>
+  <div class="aDie">10</div>
+  <div class="aDie">12</div>
+  <div class="aDie">20</div>
+  <div class="aDie">100</div>
+  <div id="passDataResult">
+    {{#each rolls}}
+    {{> roll}}
+    {{/each}}</div>
+</template>
+
+<template name="roll">
+  <li class="rollList">
+    <span class="aUser">{{ username }}</span><span class="aType"> rolled a d{{ dieType }}</span><span class="aRoll">: {{ theRoll }}</span>
+  </li>
+</template>
