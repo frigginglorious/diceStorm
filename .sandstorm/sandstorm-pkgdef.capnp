@@ -17,7 +17,7 @@ const pkgdef :Spk.PackageDefinition = (
     # This manifest is included in your app package to tell Sandstorm
     # about your app.
 
-    appTitle = (defaultText = "diceStorm"),
+    appTitle = (defaultText = "dieStorm"),
 
     appVersion = 0,  # Increment this for every release.
 
@@ -52,6 +52,10 @@ const pkgdef :Spk.PackageDefinition = (
         #grain = (svg = embed "path/to/grain-24x24.svg"),
         #market = (svg = embed "path/to/market-150x150.svg"),
         #marketBig = (svg = embed "path/to/market-big-300x300.svg"),
+        appGrid = (svg = embed "../images/Twenty_sided_dice.svg"),
+        grain = (svg = embed "../images/Twenty_sided_dice.svg"),
+        market = (svg = embed "../images/Twenty_sided_dice.svg"),
+        marketBig = (svg = embed "../images/Twenty_sided_dice.svg"),
       ),
 
       website = "http://example.com",
@@ -114,7 +118,7 @@ const pkgdef :Spk.PackageDefinition = (
       # in an app store. Note that the Markdown is not permitted to contain HTML nor image tags (but
       # you can include a list of screenshots separately).
 
-      shortDescription = (defaultText = "one-to-three words"),
+      shortDescription = (defaultText = "RPG Dice Rolling"),
       # A very short (one-to-three words) description of what the app does. For example,
       # "Document editor", or "Notetaking", or "Email client". This will be displayed under the app
       # title in the grid view in the app market.
