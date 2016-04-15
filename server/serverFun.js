@@ -1,10 +1,12 @@
 // Meteor.startup( function() {
+// //     // if(_.has(this.connection, "sandstormUser()")) {
 //     this.connection.sandstormUser();
+//  // }
 // });
-// this.connection.sandstormUser();
-
+// // this.connection.sandstormUser();
+//
 // Meteor.publish('start', function(){
-//     this.connection.sandstormUser();
+//     // this.connection.sandstormUser();
 // });
 
 Meteor.startup(function () {
@@ -21,6 +23,17 @@ Meteor.startup(function () {
             }
             return "Welcome " + name;
         },
+        checkSandstormUserPermissions: function () {
+            // check(types, Array);
+            var sandstormUser = this.connection.sandstormUser();
+            if (!sandstormUser) {
+                console.log('no sandstormUser');
+                return;
+            }else{
+                console.log('sandTime READY');
+            }
+            return true;
+        }
         // getUser: function(){
         //     if(_.has(this.connection, "sandstormUser")) {
         //         return this.connection.sandstormUser();

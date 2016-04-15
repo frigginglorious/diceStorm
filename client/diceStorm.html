@@ -1,5 +1,5 @@
 <head>
-  <title>diceStorm</title>
+  <title>dieStorm</title>
 </head>
 
 <body>
@@ -7,7 +7,7 @@
 </body>
 
 <template name="userRoll">
-  <h1>User Roll</h1>
+  <h1>dieStorm</h1>
   <!--<span>Name: </span><input type="text" value="Nachiket"/>-->
   <div class="aDie">4</div>
   <div class="aDie">6</div>
@@ -17,12 +17,12 @@
   <div class="aDie">20</div>
   <div class="aDie">100</div>
   <div id="passDataResult">
-    {{#each rolls}}
-    {{> roll}}
+    {{#each bolls}}
+    {{> boll}}
     {{/each}}</div>
 </template>
 
-<template name="roll">
+<template name="boll">
   <li class="rollList">
     <span class="aUser">{{ username }}</span><span class="aType"> rolled a d{{ dieType }}</span><span class="aRoll">: {{ theRoll }}</span>
   </li>

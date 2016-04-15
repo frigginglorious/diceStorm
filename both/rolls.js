@@ -1,19 +1,11 @@
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
+// import { Meteor } from 'meteor/meteor';
+// import { Mongo } from 'meteor/mongo';
+// import { check } from 'meteor/check';
 
-
-export const Rolls = new Mongo.Collection('rolls');
+// export const Rolls = new Mongo.Collection('rolls');
 // const Rolls = new Mongo.Collection('rolls');
 // module.exports = Rolls;
-
-if (Meteor.isServer) {
-    // This code only runs on the server
-    Meteor.publish('rolls', function rollsPublication() {
-        // this.connection.sandstormUser();
-        return Rolls.find();
-    });
-}
+Rolls = new Meteor.Collection('bolls');
 console.log("rolls.js is being called");
 Meteor.methods({
     // 'rolls.insert'(text) {
@@ -42,8 +34,9 @@ Meteor.methods({
     //
     //     Rolls.update(taskId, { $set: { checked: setChecked } });
     // },
-    'rollIt'(d) {
+    rollIt: function(d, guyID, guy) {
         // check(d, Number);
+        // this.connection.sandstormUser();
         if (isNaN(d)){
             throw new Meteor.Error("No Num", "That wasn't a number");
         }
@@ -51,18 +44,18 @@ Meteor.methods({
         var theRoll = d20.roll(d);
         // Meteor.call('tasks.insert', theRoll);
         // if(_.has(Meteor, "sandstormUser")){
-        //     var guyID = Meteor.sandstormUser().id;
-        //     var guy = Meteor.sandstormUser().name;
+        //     var guyID = guyID;//Meteor.sandstormUser().id;
+        //     var guy = guy;//Meteor.sandstormUser().name;
         //     console.log("not Sandstorm");
         // }else{
-            var guyID = "1";
-            var guy = "guy";
+        //     var guyID = "1";
+        //     var guy = "guy";
 
         // }
 
 
         Rolls.insert({
-            theRoll,
+            theRoll: theRoll,
             dieType: d,
             createdAt: new Date(),
             owner: guyID,
