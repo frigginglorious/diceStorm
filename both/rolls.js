@@ -1,59 +1,38 @@
-// import { Meteor } from 'meteor/meteor';
-// import { Mongo } from 'meteor/mongo';
-// import { check } from 'meteor/check';
+/*
 
-// export const Rolls = new Mongo.Collection('rolls');
-// const Rolls = new Mongo.Collection('rolls');
-// module.exports = Rolls;
+ Instantiates the Mongo Database Table "Rolls", as a Global Variable in this case
+ Is this smart? No. Im pretty sure that any client can push or retrieve data to the database through the JS Console.
+
+ Does it matter?
+
+ For the integrity of your D&D game, maybe. But the data is entirely containerized, and a lazy hack like this couldn't
+ affect your server, any other sandstorm grains, or give any access to data that they wouldn't already have!
+
+*/
+
 Rolls = new Meteor.Collection('bolls');
+
+// The terminal will display this message, as well as client JS console.
 console.log("rolls.js is being called");
+
 Meteor.methods({
-    // 'rolls.insert'(text) {
-    //     check(text, String);
-    //
-    //     // Make sure the user is logged in before inserting a task
-    //     if (! Meteor.userId()) {
-    //         throw new Meteor.Error('not-authorized');
-    //     }
-    //
-    //     Rolls.insert({
-    //         text,
-    //         createdAt: new Date(),
-    //         owner: Meteor.userId(),
-    //         username: Meteor.user().username,
-    //     });
-    // },
-    // 'rolls.remove'(taskId) {
-    //     check(taskId, String);
-    //
-    //     Rolls.remove(taskId);
-    // },
-    // 'rolls.setChecked'(taskId, setChecked) {
-    //     check(taskId, String);
-    //     check(setChecked, Boolean);
-    //
-    //     Rolls.update(taskId, { $set: { checked: setChecked } });
-    // },
+
     rollIt: function(d, guyID, guy) {
-        // check(d, Number);
-        // this.connection.sandstormUser();
+
         if (isNaN(d)){
             throw new Meteor.Error("No Num", "That wasn't a number");
         }
 
+         /*
+         (d) is the upper limit of the random number
+
+         Or you can think of it as number of sides of on the die.
+         */
+
+
         var theRoll = d20.roll(d);
-        // Meteor.call('tasks.insert', theRoll);
-        // if(_.has(Meteor, "sandstormUser")){
-        //     var guyID = guyID;//Meteor.sandstormUser().id;
-        //     var guy = guy;//Meteor.sandstormUser().name;
-        //     console.log("not Sandstorm");
-        // }else{
-        //     var guyID = "1";
-        //     var guy = "guy";
 
-        // }
-
-
+        // Actually adds the user's roll in,
         Rolls.insert({
             theRoll: theRoll,
             dieType: d,
@@ -62,6 +41,6 @@ Meteor.methods({
             username: guy,
         });
 
-        // return theRoll;
+
     },
 });

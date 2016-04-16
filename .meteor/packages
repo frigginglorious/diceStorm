@@ -8,14 +8,9 @@ meteor-base
 blaze-html-templates
 session
 autopublish
-# jquery
 kenton:accounts-sandstorm
 ecmascript
 reactive-dict
-# standard-minifier-css
-# standard-minifier-js
 meteorhacks:npm
 cosmos:browserify
 npm-container
-# iron:router
-# constellation:console@=1.2.1
